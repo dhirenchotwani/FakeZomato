@@ -2,75 +2,117 @@ import React from 'react';
 import { Platform } from 'react-native';
 import { createStackNavigator, createBottomTabNavigator } from 'react-navigation';
 
-import TabBarIcon from '../components/TabBarIcon';
-import HomeScreen from '../screens/HomeScreen';
-import LinksScreen from '../screens/LinksScreen';
-import SettingsScreen from '../screens/SettingsScreen';
+
+import OrderScreen from '../screens/OrderScreen';
+import GoOutScreen from '../screens/GoOutScreen';
+import GoldScreen from '../screens/GoldScreen';
+
+import Colors from '../constants/Colors';
+import {responsiveFontSize, responsiveHeight} from "react-native-responsive-dimensions";
+
+import {MaterialIcons, MaterialCommunityIcons} from "@expo/vector-icons";
 
 const config = Platform.select({
   web: { headerMode: 'screen' },
   default: {},
 });
 
-const HomeStack = createStackNavigator(
+const OrderStack = createStackNavigator(
   {
-    Home: HomeScreen,
+    Order: OrderScreen,
   },
   config
 );
 
-HomeStack.navigationOptions = {
-  tabBarLabel: 'Home',
+OrderStack.navigationOptions = {
+  tabBarLabel: 'ORDER',
   tabBarIcon: ({ focused }) => (
-    <TabBarIcon
-      focused={focused}
-      name={
-        Platform.OS === 'ios'
-          ? `ios-information-circle${focused ? '' : '-outline'}`
-          : 'md-information-circle'
-      }
-    />
+      <MaterialCommunityIcons name={'food-fork-drink'} size={responsiveFontSize(4)} color={Colors.iconColor}/>
   ),
 };
 
-HomeStack.path = '';
+OrderStack.path = '';
 
-const LinksStack = createStackNavigator(
+const GoOutStack = createStackNavigator(
   {
-    Links: LinksScreen,
+    GoOut: GoOutScreen,
   },
   config
 );
 
-LinksStack.navigationOptions = {
-  tabBarLabel: 'Links',
+GoOutStack.navigationOptions = {
+  tabBarLabel: 'GO OUT',
   tabBarIcon: ({ focused }) => (
-    <TabBarIcon focused={focused} name={Platform.OS === 'ios' ? 'ios-link' : 'md-link'} />
+      <MaterialCommunityIcons name={'home-modern'} size={responsiveFontSize(4)} color={Colors.iconColor}/>
   ),
 };
 
-LinksStack.path = '';
+GoOutStack.path = '';
 
-const SettingsStack = createStackNavigator(
+const GoldStack = createStackNavigator(
   {
-    Settings: SettingsScreen,
+    Gold: GoldScreen,
   },
   config
 );
 
-SettingsStack.navigationOptions = {
-  tabBarLabel: 'Settings',
+GoldStack.navigationOptions = {
+  tabBarLabel: 'GOLD',
   tabBarIcon: ({ focused }) => (
-    <TabBarIcon focused={focused} name={Platform.OS === 'ios' ? 'ios-options' : 'md-options'} />
+      <MaterialCommunityIcons name={'account-star'} size={responsiveFontSize(4)} color={Colors.iconColor}/>
   ),
 };
 
-SettingsStack.path = '';
+GoldStack.path = '';
+
+const SearchStack = createStackNavigator(
+    {
+        Search: GoldScreen,
+    },
+    config
+);
+
+SearchStack.navigationOptions = {
+    tabBarLabel: 'SEARCH',
+    tabBarIcon: ({ focused }) => (
+        <MaterialIcons name={'search'} size={responsiveFontSize(4)} color={Colors.iconColor}/>
+    ),
+};
+
+SearchStack.path = '';
+
+const ProfileStack = createStackNavigator(
+    {
+        Profile: GoldScreen,
+    },
+    config
+);
+
+ProfileStack.navigationOptions = {
+    tabBarLabel: 'PROFILE',
+    tabBarIcon: ({ focused , tintColor}) => (
+        <MaterialIcons name={'person'} size={responsiveFontSize(4)} color={Colors.iconColor} tintColor={{tintColor}}  focused={focused} />
+    ),
+};
+
+ProfileStack.path = '';
 
 const tabNavigator = createBottomTabNavigator({
-  HomeStack,
-  LinksStack,
-  SettingsStack,
+      OrderStack,
+      GoOutStack,
+      GoldStack,
+      SearchStack,
+      ProfileStack
+},{
+    tabBarOptions:{
+        style: {
+            height:responsiveHeight(7),
+        },
+        activeTintColor:Colors.accentColor,
+
+
+
+    }
 });
 
 tabNavigator.path = '';

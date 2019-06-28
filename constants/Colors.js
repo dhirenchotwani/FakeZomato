@@ -11,4 +11,11 @@ export default {
   warningText: '#666804',
   noticeBackground: tintColor,
   noticeText: '#fff',
+
+  //My Colors
+  accentColor:'#CB202D',
+  shadeColor:'#099e44',
+  iconColor:'lightgray',
+  bottomBarLabelActiveColor:'#333',
+  iconPageColor:'black'
 };
