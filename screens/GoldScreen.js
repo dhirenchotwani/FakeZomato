@@ -10,5 +10,5 @@ export default function GoldScreen() {
 }
 
 GoldScreen.navigationOptions = {
-  title: 'app.json',
+  title: 'app.json ',
 };

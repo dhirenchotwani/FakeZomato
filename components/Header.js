@@ -14,14 +14,14 @@ export default class Header extends Component{
                 <View style={styles.header}>
                     <View>
                       <View style={styles.locationLabel}>
-                            <MaterialCommunityIcons name={'bookmark-minus-outline'} size={responsiveFontSize(1.7)} color={Colors.accentColor}/>
+                            <MaterialIcons name={'location-on'} size={responsiveFontSize(1.7)} color={Colors.accentColor}/>
                         <Text style={styles.label}>YOUR LOCATION</Text>
                       </View>
                     <TextInput value={'Sidhi Vinayak Nagar, Ulhasnagar'} style={styles.tp}/>
                         <Dash style={{width:300, height:1, flexDirection:'row'}}/>
                     </View>
                     <View style={styles.locationIcon}>
-                        <MaterialCommunityIcons name={'bookmark-minus-outline'} size={responsiveFontSize(4)} color={Colors.iconPageColor}/>
+                        <MaterialCommunityIcons name={'bookmark-minus-outline'} size={responsiveFontSize(4)} color={Colors.accentColor}/>
                     </View>
                 </View>
                 {/*<View style={styles.dinein}>*/}

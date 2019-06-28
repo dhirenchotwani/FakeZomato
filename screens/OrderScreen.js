@@ -16,7 +16,7 @@ import Header from '../components/Header';
 export default function OrderScreen() {
   return (
     <View style={styles.container}>
-    <Header/>
+
     </View>
   );
 }
