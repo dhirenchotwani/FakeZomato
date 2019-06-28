@@ -6,7 +6,7 @@ import { createStackNavigator, createBottomTabNavigator , createMaterialTopTabNa
 import OrderScreen from '../screens/OrderScreen';
 import GoOutScreen from '../screens/GoOutScreen';
 import GoldScreen from '../screens/GoldScreen';
-import DeliveryScreen from '../screens/order screens/Delivery';
+import DeliveryScreen from '../screens/Delivery';
 import SelfPickup from '../screens/order screens/Self Pickup';
 
 
@@ -39,11 +39,12 @@ const OrderStack = createMaterialTopTabNavigator(
             },
         },
 
+
     },{
-            tabBarPosition:'bottom',
+
         tabBarOptions: {
             style: {
-                marginBottom: responsiveHeight(76),
+               // marginBottom: responsiveHeight(76),
                 backgroundColor: 'white',
 
             },
@@ -61,8 +62,12 @@ const OrderStack = createMaterialTopTabNavigator(
                 height:6,
 
             },
-            showIcon:true
-        }
+           showIcon:true,
+
+        },
+
+        animationEnabled:false,
+
 
     },
 

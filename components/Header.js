@@ -57,7 +57,7 @@ const styles = StyleSheet.create({
         paddingBottom:responsiveHeight(1),
         borderBottomWidth: 1,
         borderBottomColor:Colors.iconColor,
-        paddingTop:responsiveHeight(4),
+        paddingTop:responsiveHeight(2),
     },
     locationLabel:{
       flexDirection:'row',
