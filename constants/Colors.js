@@ -17,5 +17,6 @@ export default {
   shadeColor:'#099e44',
   iconColor:'lightgray',
   bottomBarLabelActiveColor:'#333',
-  iconPageColor:'black'
+  iconPageColor:'black',
+
 };

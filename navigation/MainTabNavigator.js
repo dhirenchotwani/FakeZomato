@@ -7,7 +7,7 @@ import OrderScreen from '../screens/OrderScreen';
 import GoOutScreen from '../screens/GoOutScreen';
 import GoldScreen from '../screens/GoldScreen';
 import DeliveryScreen from '../screens/Delivery';
-import SelfPickup from '../screens/order screens/Self Pickup';
+import SelfPickup from '../screens/SelfPickup';
 
 
 import Colors from '../constants/Colors';
@@ -48,6 +48,7 @@ const OrderStack = createMaterialTopTabNavigator(
                 backgroundColor: 'white',
 
             },
+
             labelStyle:{
                 color:'black',
                 fontSize:responsiveFontSize(1.5),
@@ -67,6 +68,7 @@ const OrderStack = createMaterialTopTabNavigator(
         },
 
         animationEnabled:false,
+        swipeEnabled:false
 
 
     },
