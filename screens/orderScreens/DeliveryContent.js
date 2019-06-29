@@ -46,7 +46,7 @@ export default class DeliveryContent extends  React.Component{
                 <View style={styles.search}>
                     <View style={styles.searchBar}>
                         <MaterialIcons name={'search'} color={'gray'} size={responsiveFontSize(3)}/>
-                        <TextInput placeholder={'Search for restauranrs,dishes...'}  placeholderTextColor={'#333'} style={styles.searchInput}/>
+                        <TextInput placeholder={'Search for restaurants,dishes...'}  placeholderTextColor={'#333'} style={styles.searchInput}/>
                     </View>
                     <TouchableOpacity style={styles.filter}>
                         <Ionicons name={'md-options'} color={'black'}

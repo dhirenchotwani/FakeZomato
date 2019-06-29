@@ -6,6 +6,7 @@ import { createStackNavigator, createBottomTabNavigator , createMaterialTopTabNa
 import OrderScreen from '../screens/OrderScreen';
 import GoOutScreen from '../screens/GoOutScreen';
 import GoldScreen from '../screens/GoldScreen';
+import SearchScreen from '../screens/SearchScreen';
 import DeliveryScreen from '../screens/Delivery';
 import SelfPickup from '../screens/SelfPickup';
 
@@ -119,9 +120,9 @@ GoldStack.navigationOptions = {
 
 GoldStack.path = '';
 
-const SearchStack = createStackNavigator(
+const SearchStack = createDrawerNavigator(
     {
-        Search: GoldScreen,
+        Search: SearchScreen,
     },
     config
 );
