@@ -3,8 +3,8 @@ import { Platform } from 'react-native';
 import { createStackNavigator, createBottomTabNavigator , createMaterialTopTabNavigator, createDrawerNavigator } from 'react-navigation';
 
 
-//Gold Screen
-import GoldScreen from '../screens/GoldScreen';
+//Profile Screen
+import ProfileScreen from '../screens/ProfileScreen';
 
 //Search Screen
 import SearchScreen from '../screens/SearchScreen';
@@ -25,7 +25,12 @@ import SneakpeakScreen from '../screens/goOutScreens/SneakpeakScreen';
 import Colors from '../constants/Colors';
 import {responsiveFontSize, responsiveHeight, responsiveWidth} from "react-native-responsive-dimensions";
 
-import {MaterialIcons, MaterialCommunityIcons , SimpleLineIcons} from "@expo/vector-icons";
+import {MaterialIcons, MaterialCommunityIcons , SimpleLineIcons, Entypo} from "@expo/vector-icons";
+
+//Gold Screen
+import AllGoldScreen from '../screens/goldScreens/AllGoldScreen';
+import DrinksGoldScreen from '../screens/goldScreens/DrinksGoldScreen';
+import FoodGoldScreen from '../screens/goldScreens/FoodGoldScreen';
 
 const config = Platform.select({
   web: { headerMode: 'screen' },
@@ -201,21 +206,81 @@ GoOutParent.navigationOptions = {
 GoOutParent.path = '';
 
 
-const GoldStack = createStackNavigator(
-  {
-    Gold: GoldScreen,
-  },
-  config
+const GoldParent = createMaterialTopTabNavigator(
+    {
+        AllGoldScreen: {
+            screen: AllGoldScreen,
+            navigationOptions:{
+                tabBarIcon: ({ tintColor }) => (
+                    <MaterialCommunityIcons name={'food'} size={responsiveFontSize(2)} color={Colors.iconPageColor}/>
+                )
+            },
+        },
+        FoodGoldScreen:{
+            screen:FoodGoldScreen,
+            navigationOptions:{
+                tabBarIcon: ({ tintColor }) => (
+                    <MaterialCommunityIcons name={'food-variant'} size={responsiveFontSize(2)} color={Colors.iconPageColor}/>
+                )
+            },
+        },
+        DrinksGoldScreen: {
+            screen: DrinksGoldScreen,
+            navigationOptions:{
+                tabBarIcon: ({ tintColor }) => (
+                    <Entypo name={'drink'} size={responsiveFontSize(2)} color={Colors.iconPageColor}/>
+                )
+            },
+        },
+
+    },{
+        lazy:true,
+        tabBarOptions: {
+            style: {
+                // marginBottom: responsiveHeight(76),
+                backgroundColor: 'white',
+
+
+            },
+            scrollEnabled:true,
+
+            labelStyle:{
+                color:'black',
+                fontSize:responsiveFontSize(1.5),
+            },
+            tabStyle:{
+                width:responsiveWidth(30),
+                height:responsiveHeight(6),
+                flexDirection:'row',
+
+            },
+            indicatorStyle:{
+                backgroundColor:Colors.accentColor,
+                height:6,
+
+            },
+            showIcon:true,
+
+        },
+
+        animationEnabled:false,
+        swipeEnabled:false
+
+
+    },
+
+    config
 );
 
-GoldStack.navigationOptions = {
-  tabBarLabel: 'GOLD',
-  tabBarIcon: ({ focused }) => (
-      <MaterialCommunityIcons name={'account-star'} size={responsiveFontSize(4)} color={Colors.iconColor}/>
-  ),
+GoldParent.navigationOptions = {
+    tabBarLabel: 'GOLD',
+    tabBarIcon: ({ focused }) => (
+        <MaterialCommunityIcons name={'account-star'} size={responsiveFontSize(4)} color={Colors.iconColor}/>
+    ),
 };
 
-GoldStack.path = '';
+GoldParent.path = '';
+
 
 const SearchStack = createDrawerNavigator(
     {
@@ -235,10 +300,9 @@ SearchStack.path = '';
 
 const ProfileDrawer = createDrawerNavigator(
     {
-        Profile: GoldScreen,
+        Profile: ProfileScreen,
     },
-    config
-);
+    config);
 
 ProfileDrawer.navigationOptions = {
     tabBarLabel: 'PROFILE',
@@ -250,11 +314,12 @@ ProfileDrawer.navigationOptions = {
 ProfileDrawer.path = '';
 
 const tabNavigator = createBottomTabNavigator({
-       OrderStack,
+
+    OrderStack,
     GoOutParent,
-      GoldStack,
+    GoldParent,
       SearchStack,
-    ProfileDrawer
+    ProfileDrawer,
 },{
     tabBarOptions:{
         style: {
