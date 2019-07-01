@@ -2,5 +2,6 @@ Fake Zomato Dependancies (react native)
 	1. react-native-responsive-dimensions
 	2. @expo/vector-icons
 	3. react-native-dash -> dashed border
+	4. react-native-vector-icons -> icons
 
 
