@@ -282,21 +282,21 @@ GoldParent.navigationOptions = {
 GoldParent.path = '';
 
 
-const SearchStack = createDrawerNavigator(
+const SearchParent = createDrawerNavigator(
     {
         Search: SearchScreen,
     },
     config
 );
 
-SearchStack.navigationOptions = {
+SearchParent.navigationOptions = {
     tabBarLabel: 'SEARCH',
     tabBarIcon: ({ focused }) => (
         <MaterialIcons name={'search'} size={responsiveFontSize(4)} color={Colors.iconColor}/>
     ),
 };
 
-SearchStack.path = '';
+SearchParent.path = '';
 
 const ProfileDrawer = createDrawerNavigator(
     {
@@ -318,7 +318,7 @@ const tabNavigator = createBottomTabNavigator({
     OrderStack,
     GoOutParent,
     GoldParent,
-      SearchStack,
+      SearchParent,
     ProfileDrawer,
 },{
     tabBarOptions:{
