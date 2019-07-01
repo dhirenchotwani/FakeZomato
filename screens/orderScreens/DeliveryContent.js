@@ -21,7 +21,7 @@ export default class DeliveryContent extends  React.Component{
         console.log("Inside Delivery Content");
         return (
             <View style={styles.container}>
-                <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
+                <ScrollView horizontal={true} showsHorizontalScrollIndicator={false} style={styles.dealsContainer}>
                     <View style={styles.deals}>
                         <ImageBackground source={{uri:"https://i2.wp.com/www.lootpur.in/wp-content/uploads/2019/04/images-78-323493120..jpg?resize=300%2C190&ssl=1"}}  style={styles.dealImages}>
                             <Text style={styles.dealText}>Zomato deal text</Text>
@@ -50,7 +50,7 @@ export default class DeliveryContent extends  React.Component{
                     </View>
                     <TouchableOpacity style={styles.filter}>
                         <Ionicons name={'md-options'} color={'black'}
-                                  size={responsiveFontSize(3)}/>
+                                  size={responsiveFontSize(4.5)}/>
                     </TouchableOpacity>
                 </View>
                     <ScrollView horizontal={false}>
@@ -199,7 +199,7 @@ const styles = StyleSheet.create({
     },
     searchBar:{
         flexDirection:'row',
-        height:responsiveHeight(4.5),
+        height:responsiveHeight(6),
         width:responsiveWidth(75),
         backgroundColor:'#eee',
         borderRadius:responsiveHeight(1),
@@ -221,6 +221,10 @@ const styles = StyleSheet.create({
     dealText:{
         color:'white',
         paddingHorizontal:responsiveWidth(2),
+    },
+    dealsContainer:{
+        paddingBottom:responsiveHeight(2),
+        backgroundColor:'#eee',
     }
 
 });

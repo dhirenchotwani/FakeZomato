@@ -26,7 +26,7 @@ export default class SelfPickupContent extends  React.Component{
                     </View>
                     <TouchableOpacity style={styles.filter}>
                         <Ionicons name={'md-options'} color={'black'}
-                                  size={responsiveFontSize(3)}/>
+                                  size={responsiveFontSize(4)}/>
                     </TouchableOpacity>
                 </View>
                 <ScrollView horizontal={false}>
@@ -168,14 +168,12 @@ const styles = StyleSheet.create({
     },
     searchInput:{
         flex:1,
-
-
         fontSize:responsiveFontSize(2),
 
     },
     searchBar:{
         flexDirection:'row',
-        height:responsiveHeight(4.5),
+        height:responsiveHeight(6),
         width:responsiveWidth(75),
         backgroundColor:'#eee',
         borderRadius:responsiveHeight(1),
@@ -203,12 +201,14 @@ const styles = StyleSheet.create({
         width:340,
         height:180,
         borderRadius:10,
+
     },
     newFeatureContainer:{
         justifyContent:'center',
         alignItems:'center',
         paddingVertical:responsiveWidth(2),
         paddingHorizontal:responsiveWidth(2),
+        backgroundColor:'#eee',
 
 
     }
